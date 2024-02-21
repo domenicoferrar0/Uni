@@ -70,8 +70,8 @@ public class ControllerStudenti {
 
 		// BINDINGRESULT GESTISCE LA VALIDAZIONE BASANDOSI SULLE ANNOTATION DEI CAMPI
 		if (bRes.hasErrors()) {
-
-			return ResponseEntity.unprocessableEntity().body(uService.getFieldErrors(bRes));
+			//GLI ERRORI DI BINDING RESULT VENGONO MANDATI AL FRONT END SOTTOFORMA DI MAP(field, errorMessage)
+			return ResponseEntity.unprocessableEntity().body(uService.getFieldErrors(bRes)); 
 		}
 		// NOME CDL CHE VIENE DAL FORM
 		String nomeCdl = form.getNomeCdl();
