@@ -1,1 +1,2 @@
-# Uni
+This is one of my very first attempts on using Spring, the reason why it's in italian it's because i made this small project for a course I'm attending.
+The main point of this exercise was doing a Rest service which could handle simple CRUD operations using Spring Data JPA, the DB was meant to be a simple University Database, the focus was on 3 entities, Student, Teacher and Course itself, plus there was a nested Entity in Student and Teacher (Anagrafica) which represents their own Personal Informations.
