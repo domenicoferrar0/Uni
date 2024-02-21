@@ -135,7 +135,7 @@ public class ControllerDocenti {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Corso di laurea non trovato " + nomeCDL);
 		}
 
-		if (docente.getCdl() != cdl) {
+		if (docente.getCdl() != cdl) { //SE NON C'E CORRISPONDENZA TRA DOCENTE SELEZIONATO E IL CDL DA RIMUOVERE
 			return ResponseEntity.status(HttpStatus.CONFLICT)
 					.body("Il docente :" + cf + ", non è assegnato a questo corso di laurea " + nomeCDL);
 		}
