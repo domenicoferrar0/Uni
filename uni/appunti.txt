@@ -1,0 +1,20 @@
+GET
+1.X Restituire tutti gli studenti con il proprio cdl (FARE DTO COMPLETO DI ANAGRAFICA)
+2.X Restituire tutti i corsi di laurea con gli studenti iscritti (FARE DTO COMPLETO DI DOCENTi E STUDENTi)
+3.X Restituire uno studente dato il suo CF includendo anche il cdl nel caso fosse già iscritto (StudenteDTO findByCf, CON ANAGRAFICA)
+4.X Restituire un cdl dato il suo nome, senza restituire anche gli studenti (CdlDTO senza studenti, findByNome)
+5.X Controllare se uno studente, dato il suo CF, è già iscritto o meno ad un cdl (booleano custom, find Where Cdl IS NOT NULL and CF = ?1)
+6.X Restituire tutti i docenti con il proprio cdl sia che ce l’abbiano o meno (opzionale) (DocenteDTO completo)
+7.X Modifica l’API 2. e 4. facendo restituire anche il docente assegnato ad ogni cdl (opzionale) 
+8.X Modifica l’API 1. e 3. includendo anche la tabella anagrafica (opzionale)
+9.X Controllare se un docente, dato il suo CF è già responsabile di un cdl (opzionale) (ANCHE QUI BOOLEANO CUSTOM)
+
+POST
+1.X Registrare un nuovo studente (senza cdl) (FormStudente ha cdl nullable)
+2.X Iscrivere uno studente già registrato ad un cdl dato il suo CF e il nome del cdl, assicurandosi che non sia già iscritto a qualche altro cdl
+3.X Creare un nuovo cdl 
+4.X Annullare l’iscrizione di uno studente ad un cdl dato il suo CF e il nome del cdl, assicurandosi che sia effettivamente iscritto a quel cdl
+5.X Iscrivere un nuovo docente (opzionale)
+6.X Assegnare un docente ad un cdl già esistente dato il suo CF e il nome del cdl (opzionale)
+7.X Rimuovere un docente da un cdl dato il suo CF e il nome del cdl (opzionale)
+
