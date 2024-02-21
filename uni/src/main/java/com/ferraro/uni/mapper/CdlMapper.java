@@ -35,7 +35,7 @@ public interface CdlMapper {
 	}
 	
 	
-	
+//MAPPO DOCENTE E STUDENTE (hanno dei campi in più ma non hanno anagrafica) QUI PERCHE' SONO IL DTO SPECFICO DI CDLDTOFULL		
 	 default StudenteDTOList studentToDTOList(Studente studente) {
 		StudenteDTOList mStudente = new StudenteDTOList();
 		Anagrafica anagrafica = studente.getAnagrafica();
