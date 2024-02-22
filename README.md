@@ -1,3 +1,3 @@
 This is one of my very first attempts on using Spring, the reason why it's in italian it's because i made this small project for a course I'm attending.
 The main point of this exercise was doing a Rest service which could handle simple CRUD operations using Spring Data JPA, the DB was meant to be a simple University Database, the focus was on 3 entities, Student, Teacher and Course itself, plus there was a nested Entity in Student and Teacher (Anagrafica) which represents their own Personal Informations.
-I also made a small template which represents the Student Registration form where Javascripts handles field error messages based on the controller response.
+I also made a small template (rendered using Thymeleaf) which represents the Student Registration form where Javascripts handles field error messages based on the controller response.
