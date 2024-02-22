@@ -76,7 +76,7 @@ public class ControllerDocenti {
 		Docente docente = service.formToDocente(form);
 		docente.setCdl(cdl);
 		docente.setCodiceDocente(nuovoCodice);
-		if (!service.isUnique(docente)) { // FA UN CHECK SUI VALORI UNIQUE PRIMA DELL'INSERT, CF E MATRICOLA
+		if (!service.isUnique(docente)) { // FA UN CHECK SUI VALORI UNIQUE PRIMA DELL'INSERT, CF E CODICE DOCENTE
 			return ResponseEntity.status(HttpStatus.CONFLICT).body(uService.fieldError("cf",
 					"Si è verificato un problema, Codice fiscale o Codice docente già registrati"));
 		}
