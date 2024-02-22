@@ -2,8 +2,10 @@ package com.ferraro.uni.dto;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.ferraro.uni.enums.Settore;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CdlDTOFull {
 	private Integer maxStudenti;
 
@@ -64,7 +66,4 @@ public class CdlDTOFull {
 	public void setDocenti(Set<DocenteDTOList> docenti) {
 		this.docenti = docenti;
 	}
-	
-	
-	
 }

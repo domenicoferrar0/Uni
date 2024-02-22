@@ -20,8 +20,9 @@
 		<dependency>
     <groupId>org.mapstruct</groupId>
     <artifactId>mapstruct</artifactId>
-    <version>1.6.0.Beta1</version> 
-</dependency>
+    <version>1.6.0.Beta1</version>
+
+	</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -46,10 +47,18 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-    <groupId>org.hibernate.validator</groupId>
-    <artifactId>hibernate-validator</artifactId>
-     <!-- Or the latest version -->
-</dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			 <!-- Or the latest version -->
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.14.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -59,19 +68,19 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-compiler-plugin</artifactId>
-    <version>${maven-compiler-plugin.version}</version>
-    <configuration>
-        <annotationProcessorPaths>
-            <path>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct-processor</artifactId>
-                <version>1.6.0.Beta1</version>
-            </path>
-        </annotationProcessorPaths>
-    </configuration>
-</plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>`
+				<configuration>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+							<version>1.6.0.Beta1</version>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 

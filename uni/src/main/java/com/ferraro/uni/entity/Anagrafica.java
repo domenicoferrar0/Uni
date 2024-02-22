@@ -29,7 +29,7 @@ public class Anagrafica {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Size(min = 2, max = 35, message = "Formato non valido, minimo 2 caratteri, massimo 35")
+	@Size(min = 2, max = 35, message = "Formato non valid, minimo 2 caratteri, massimo 35")
 	@Pattern(regexp="\\S(\\s*[a-zA-Z]+)*\\s*", message = "Formato nome non valido, rimuovi gli spazi in eccesso e i caratteri non autorizzati")
 	@Column(nullable = false)
 	private String nome;
@@ -55,14 +55,12 @@ public class Anagrafica {
 		
 	
 	@Enumerated(EnumType.STRING)
-	 @Column(nullable = false)
+ 	@Column(nullable = false)
 	private Genere genere;
 	
 	@Enumerated(EnumType.STRING)
-	 @Column(nullable = false)
+ 	@Column(nullable = false)
 	private Provincia luogoDiNascita;
-	
-	
 
 	public Long getId() {
 		return id;

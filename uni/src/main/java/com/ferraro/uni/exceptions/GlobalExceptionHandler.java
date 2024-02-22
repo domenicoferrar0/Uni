@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 	
-	@ExceptionHandler(PersonNotFoundException.class)
-	public ResponseEntity<String> handlePersonNotFoundException(PersonNotFoundException ex) {
+	@ExceptionHandler({PersonNotFoundException.class, CdlNotFoundException.class})
+	public ResponseEntity<String> handleNotFoundException(Exception ex) {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
 	}
 	
-	@ExceptionHandler(CdlNotFoundException.class)
-	public ResponseEntity<String> handleCdlNotFoundException(CdlNotFoundException ex){
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
-	}
+//	@ExceptionHandler(CdlNotFoundException.class)
+//	public ResponseEntity<String> handleCdlNotFoundException(CdlNotFoundException ex){
+//		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+//	}
 
 }

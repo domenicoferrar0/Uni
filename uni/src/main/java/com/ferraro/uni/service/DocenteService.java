@@ -1,7 +1,6 @@
 package com.ferraro.uni.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,47 +18,45 @@ import jakarta.transaction.Transactional;
 public class DocenteService {
 
 	@Autowired
-	DocenteRepository dRep;
+	private DocenteRepository docenteRepository;
 
 	@Autowired
-	DocenteMapper dMapper;
+	private DocenteMapper docenteMapper;
 	
 	@Transactional
 	public DocenteDTO save(Docente docente) {
-		return dMapper.docenteToDTO(dRep.save(docente));
+		return docenteMapper.docenteToDTO(docenteRepository.save(docente));
 	}
 
 	public boolean isUnique(Docente docente) {
 		String codiceDocente = docente.getCodiceDocente();
 		String cf = docente.getAnagrafica().getCf();
-		if (dRep.existsByCodiceDocente(codiceDocente) || dRep.existsByAnagrafica_Cf(cf)) {
+		if (docenteRepository.existsByCodiceDocente(codiceDocente) || docenteRepository.existsByAnagrafica_Cf(cf)) {
 			return false;
 		}
 		return true;
 	}
 
 	public List<DocenteDTO> findAll() {
-		List<DocenteDTO> docenti = dMapper.docentiToDto(dRep.findAll());
+		List<DocenteDTO> docenti = docenteMapper.docentiToDto(docenteRepository.findAll());
 		return docenti;
 	}
 
 	public boolean hasCdl(String cf) {
-		if(dRep.existsByAnagrafica_CfAndCdlNotNull(cf)) {
-			return true;
-		}
-		return false;
+		return docenteRepository.existsByAnagrafica_CfAndCdlNotNull(cf);
 	}
 	public Docente formToDocente(Form form) {		
-		Docente docente = dMapper.formToDocente(form);
-		return docente;
+		return docenteMapper.formToDocente(form);
 	}
 	
 	public Docente findEntityByCf(String cf) {
-		return dRep.findByAnagrafica_Cf(cf).orElseThrow(() -> new PersonNotFoundException(cf));
+		return docenteRepository
+				.findByAnagrafica_Cf(cf)
+				.orElseThrow(() -> new PersonNotFoundException(cf));
 	}
 
 	public DocenteDTO docenteToDto(Docente docente) {
 		
-		return dMapper.docenteToDTO(docente);
+		return docenteMapper.docenteToDTO(docente);
 	}
 }

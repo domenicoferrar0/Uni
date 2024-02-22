@@ -36,7 +36,7 @@ public class Cdl {
 	private String nome;
 	
 	@Enumerated(EnumType.STRING)
-	 @Column(nullable = false)
+ 	@Column(nullable = false)
 	private Settore settore;
 	
 	@OneToMany(mappedBy = "cdl", fetch = FetchType.LAZY, cascade = jakarta.persistence.CascadeType.PERSIST)

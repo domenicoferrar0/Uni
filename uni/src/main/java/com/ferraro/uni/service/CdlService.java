@@ -19,53 +19,52 @@ import jakarta.transaction.Transactional;
 public class CdlService {
 
 	@Autowired
-	CdlRepository cdlRep;
+	private CdlRepository cdlRepository;
 	
 	@Autowired
-	CdlMapper cdlMapper;
-	
+	private CdlMapper cdlMapper;
+
 	public Cdl dtoToCdl(CdlDTO cdlDTO) {
 		return cdlMapper.dtoToCdl(cdlDTO);
 	}
 		
 	@Transactional
 	public CdlDTO save(Cdl cdl) {
-		return cdlMapper.cdlToDto(cdlRep.save(cdl));
+		return cdlMapper.cdlToDto(cdlRepository.save(cdl));
 	}
 	
 	public List<CdlDTO> findAll(){
-		List<Cdl> cdls = cdlRep.findAll();
+		List<Cdl> cdls = cdlRepository.findAll();
 		return cdlMapper.cdlToDtos(cdls);
 	}
 	
 	public CdlDTO findByNome(String nome) {
-		return cdlRep.findByNome(nome).map(cdlMapper::cdlToDto).orElseThrow(()-> new CdlNotFoundException(nome));
+		return cdlRepository
+				.findByNome(nome)
+				.map(cdlMapper::cdlToDto)
+				.orElseThrow(()-> new CdlNotFoundException(nome));
 	}
 	
 	public Cdl findEntityByNome(String nome) {
-		Optional<Cdl> opt = cdlRep.findByNome(nome);
-		if(opt.isPresent()) {
-			return opt.get();
-		}
-		return null;
-	}
+		Optional<Cdl> opt = cdlRepository.findByNome(nome);
+        return opt.orElse(null);
+    }
 	
 	public boolean existsByNome(String nome) {
-		return cdlRep.existsByNome(nome);
-		
+		return cdlRepository.existsByNome(nome);
 	}
 	
 	public List<CdlDTOFull> findAllFull(){
-		List<Cdl> cdls = cdlRep.findAll();
+		List<Cdl> cdls = cdlRepository.findAll();
 		return cdlMapper.cdlsToDtoFull(cdls);
 	}
 	
 	public Optional<Cdl> findById(Long id) {
-		return cdlRep.findById(id);
+		return cdlRepository.findById(id);
 	}
 	
 	public List<String> findForMenu(){
-		return cdlRep.findNome();
+		return cdlRepository.findNome();
 	}
 
 	public CdlDTO cdlToDTo(Cdl newCdl) {
