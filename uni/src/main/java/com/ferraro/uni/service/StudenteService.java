@@ -48,18 +48,19 @@ public class StudenteService {
 	}
 
 	public StudenteDTO findByCf(String cf) {
-		return sRep.findByAnagrafica_Cf(cf).map(mapper::studentToDTO).orElseThrow(() -> new PersonNotFoundException(cf) );
+		return sRep.findByAnagrafica_Cf(cf)
+				.map(mapper::studentToDTO)
+				.orElseThrow(() -> new PersonNotFoundException(cf) );
 	}
 
 	public Studente findEntityByCf(String cf) {
-		return sRep.findByAnagrafica_Cf(cf).orElseThrow(() -> new PersonNotFoundException(cf));
+		return sRep.findByAnagrafica_Cf(cf)
+				.orElseThrow(() -> new PersonNotFoundException(cf));
 	}
 
 	public boolean hasCdl(String cf) {
-		if (sRep.existsByAnagrafica_CfAndCdlNotNull(cf)) {
-			return true;
-		}
-		return false;
+		return sRep.existsByAnagrafica_CfAndCdlNotNull(cf);
+		
 	}
 
 	public Studente formToStudente(Form form) {

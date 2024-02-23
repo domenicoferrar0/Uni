@@ -2,7 +2,7 @@ package com.ferraro.uni.controller;
 
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -124,7 +124,7 @@ public class StudentiController {
 	@PostMapping(value = "/studente-selectCDL")
 	public ResponseEntity<?> updateStudenteCdl(@RequestParam(value = "cf") String cf,
 			@RequestParam(value = "nomeCDL") String nomeCDL) {
-		if (cf == null || cf.isEmpty() || nomeCDL == null || nomeCDL.isEmpty()) {
+		if (cf == null || cf.isBlank() || nomeCDL == null || nomeCDL.isBlank()) {
 			return ResponseEntity.unprocessableEntity().body("Inserisci i valori necessari");
 		}
 		Studente studente = service.findEntityByCf(cf); // CERCA STUDENTE, 404 SE NON C'è
@@ -157,7 +157,7 @@ public class StudentiController {
 	@PostMapping(value = "/studente-removeCDL")
 	public ResponseEntity<?> removeCdl(@RequestParam(value = "cf") String cf,
 			@RequestParam(value = "nomeCDL") String nomeCDL) {
-		if (StringUtils.isBlank(cf) || StringUtils.isBlank(nomeCDL)) {
+		if (cf == null || cf.isBlank() || nomeCDL == null || nomeCDL.isBlank()) {
 			return ResponseEntity.unprocessableEntity().body("Inserisci i valori necessari");
 		}
 		Studente studente = service.findEntityByCf(cf); // 404 SE NON C'E'

@@ -94,7 +94,7 @@ public class DocentiController {
 	@PostMapping(value = "/docente-selectCDL")
 	public ResponseEntity<?> updateDocenteCdl(@RequestParam(value = "cf") String cf,
 			@RequestParam(value = "nomeCDL") String nomeCDL) {
-		if (cf == null || cf.isEmpty() || nomeCDL == null || nomeCDL.isEmpty()) {
+		if (cf == null || cf.isBlank() || nomeCDL == null || nomeCDL.isBlank()) {
 			return ResponseEntity.unprocessableEntity().body("Inserisci i valori necessari");
 		}
 		Docente docente = service.findEntityByCf(cf); //Viene gestito da exception handler se non lo trova
@@ -122,7 +122,7 @@ public class DocentiController {
 	@PostMapping(value = "/docente-removeCDL")
 	public ResponseEntity<?> removeCdl(@RequestParam(value = "cf") String cf,
 			@RequestParam(value = "nomeCDL") String nomeCDL) {
-		if (cf == null || cf.isEmpty() || nomeCDL == null || nomeCDL.isEmpty()) {
+		if (cf == null || cf.isBlank() || nomeCDL == null || nomeCDL.isBlank()) {
 			return ResponseEntity.unprocessableEntity().body("Inserisci i valori necessari");
 		}
 		Docente docente  = service.findEntityByCf(cf);
